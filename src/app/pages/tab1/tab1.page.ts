@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { DeseosService } from 'src/app/services/deseos.service';
-import { Lista } from 'src/app/models/lista.model';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 
@@ -44,13 +43,4 @@ export class Tab1Page {
     await alert.present();
   }
 
-  seleccionarLista( lista: Lista ){
-    const id = lista.id;
-    this.router.navigateByUrl(`/tabs/tab1/agregar/${id}`);
-  }
-
-  borrar( i: number ){
-    this.deseosServices.listas.splice(i, 1);
-    this.deseosServices.guardarStorage();
-  }
 }

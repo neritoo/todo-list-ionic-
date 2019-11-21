@@ -7,24 +7,8 @@
 </ion-header>
 
 <ion-content color="dark">
-    <ion-list color="dark">
-        <app-listas></app-listas>
-        <ion-item-sliding *ngFor="let lista of deseosServices.listas, let i = index">
 
-            <ion-item color="dark" detail (click)='seleccionarLista(lista)'>
-                <ion-label>{{lista.titulo}}</ion-label>
-                <ion-badge *ngIf="lista.terminada" slot='end' color='success'>{{lista.items.length}} items</ion-badge>
-                <ion-badge *ngIf="!lista.terminada" slot='end' color='tertiary'>{{lista.items.length}} items</ion-badge>
-            </ion-item>
-
-            <ion-item-options side="start">
-                <ion-item-option (click)="borrar(i)">
-                    <ion-icon slot='icon-only' name='close' color='danger'></ion-icon>
-                </ion-item-option>
-            </ion-item-options>
-
-        </ion-item-sliding>
-    </ion-list>
+    <app-listas [terminada]='false'></app-listas>
 
     <ion-fab vertical="bottom" horizontal="end" slot="fixed">
         <ion-fab-button color="tertiary" (click)="agregarLista()">
