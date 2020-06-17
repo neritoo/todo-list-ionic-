@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { DeseosService } from 'src/app/services/deseos.service';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+
 
 @Component({
   selector: 'app-tab1',
@@ -9,7 +11,10 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-  constructor( public deseosServices: DeseosService, private router: Router, private alert: AlertController ) {}
+  constructor( public deseosServices: DeseosService,
+    private router: Router,
+    private alert: AlertController,
+    private localNotification: LocalNotifications) {}
 
   async agregarLista(){
     const alert = await this.alert.create({

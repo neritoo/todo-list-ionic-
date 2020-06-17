@@ -29,6 +29,13 @@
                 <ion-checkbox slot='start' color='primary' [(ngModel)]="item.completado" (ionChange)='cambioCheck( item )'>
                 </ion-checkbox>
                 <ion-label>{{ item.descripcion }}</ion-label>
+                <ion-icon color='tertiary' name='calendar'></ion-icon>
+                <span>
+                    <ion-datetime (ionChange)="agregarNotificacion(item)" [(ngModel)]="item.fechaHoraNotificacion" color='dark' displayFormat="HH:mm" pickerFormat="MMM DD HH:mm"></ion-datetime>
+                </span>
+                <ion-button *ngIf="item.fechaHoraNotificacion" slot='end' (click)="enviarNotificacion(item)" color='tertiary'>
+                    <ion-icon name="send"></ion-icon>
+                </ion-button>
             </ion-item>
 
             <ion-item-options side="end">
